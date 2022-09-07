@@ -11,3 +11,15 @@ Small project made using Raspberry Pi Pico and MicroPython.
 
 ## Usage
 Assembly instructions coming soon!
+
+Stand by
+![usasge-stand-by](https://github.com/feniuspw/rpico-bikeSignalLights/blob/main/img/rpico-bsl.jpeg)
+
+Left Arrow
+![usasge-arrow-left](https://github.com/feniuspw/rpico-bikeSignalLights/blob/main/img/rpico-bsl-left.jpeg)
+
+Right Arrow
+![usasge-arrow-right](https://github.com/feniuspw/rpico-bikeSignalLights/blob/main/img/rpico-bsl-right.jpeg)
+
+Break Light
+![usasge-break](https://github.com/feniuspw/rpico-bikeSignalLights/blob/main/img/rpico-bsl-brake.jpeg)
