@@ -3,10 +3,26 @@ from time import sleep
 
 from lib import max7219
 
+# Constants
+L_ARROW_STATUS = 0
+R_ARROW_STATUS = 0
+BRAKE_STATUS = 0
+BRIGHTNESS_STATUS = [1,5,10,15]
+BRIGHTNESS_LEVEL = 0
+JOYSTICK_X_AXIS_PIN = 26
+JOYSTICK_Y_AXIS_PIN = 27
+JOYSTICK_Z_AXIS_PIN = 22
+GROVE_BUTTON_LED_PIN = 21
+GROVE_BUTTON_BTN_PIN = 20
+
+# Grove button initialization
+gbtnled = Pin(GROVE_BUTTON_LED_PIN, Pin.OUT)
+gbtn = Pin(GROVE_BUTTON_BTN_PIN,Pin.IN, Pin.PULL_UP)
+
 # KY-023 Joystick Module for testing purposes
-xAxis = ADC(Pin(26))
-yAxis = ADC(Pin(27))
-SW = Pin(22,Pin.IN, Pin.PULL_UP)
+xAxis = ADC(Pin(JOYSTICK_X_AXIS_PIN))
+yAxis = ADC(Pin(JOYSTICK_Y_AXIS_PIN))
+SW = Pin(JOYSTICK_Z_AXIS_PIN,Pin.IN, Pin.PULL_UP)
 
 # setup LedMatrix 4x8x8
 spi = SPI(0, baudrate=10000000, polarity=1, phase=0, sck=Pin(2), mosi=Pin(3))
@@ -18,10 +34,11 @@ display.brightness(1)   # adjust brightness 1 to 15
 display.fill(0)
 display.show()
 
-# Constants
-L_ARROW_STATUS=0
-R_ARROW_STATUS=0
-BRAKE_STATUS=0
+def adjust_brightness(brightness):
+    global display, gbtnled, BRIGHTNESS_STATUS
+    brightness = (brightness+1)%4 
+    display.brightness(BRIGHTNESS_STATUS[brightness])
+    return brightness
 
 def toggle_brake_light():
     global BRAKE_STATUS
@@ -65,7 +82,14 @@ while True:
     xRef = xAxis.read_u16()
     yRef = yAxis.read_u16()
     brake_button = SW.value()
-
+    
+    # grove button
+    if gbtn.value():
+        gbtnled.value(0)
+    else:
+        gbtnled.value(1)
+        BRIGHTNESS_LEVEL = adjust_brightness(BRIGHTNESS_LEVEL)
+        
     # Signal lights
     if yRef < 20000:
         toggle_arrow('l')
