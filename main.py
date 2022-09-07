@@ -30,11 +30,9 @@ def toggle_brake_light():
 
 def draw_brake_light(color):
     global display
-    display.fill_rect(10,0,12,8,color)
-    display.pixel(10,0,0)
-    display.pixel(21,0,0)
-    display.pixel(10,7,0)
-    display.pixel(21,7,0)
+    display.fill_rect(10,1,12,6,color)
+    display.hline(11,0,10,color)
+    display.hline(11,7,10,color)
 
 def toggle_arrow(side):
     global L_ARROW_STATUS, R_ARROW_STATUS
