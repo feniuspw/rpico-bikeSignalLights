@@ -22,5 +22,5 @@ Left Arrow
 Right Arrow
 ![usasge-arrow-right](https://github.com/feniuspw/rpico-bikeSignalLights/blob/main/img/rpico-bsl-right.jpeg)
 
-Break Light
+Brake Light
 ![usasge-break](https://github.com/feniuspw/rpico-bikeSignalLights/blob/main/img/rpico-bsl-brake.jpeg)
