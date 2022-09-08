@@ -27,8 +27,9 @@ Brake Light
 
 
 For this prototype version, if you press or hold the button, brightness will change in 4 levels.
+
 ATTENTION:
-    - If you plan to use a battery, be sure to provide 5v and enough current (still don't know the exact values)
-    - If you are using an usb cable plugged to a laptop or computer, that should be enough
+* If you plan to use a battery, be sure to provide 5v and enough current (still don't know the exact values)
+* If you are using an usb cable plugged to a laptop or computer, that should be enough
 
 ![usasge-break](https://github.com/feniuspw/rpico-bikeSignalLights/blob/main/img/rpico-brightness.gif)
